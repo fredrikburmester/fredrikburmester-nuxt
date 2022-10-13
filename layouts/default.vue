@@ -1,0 +1,26 @@
+<template>
+  <div class="relative min-h-screen flex flex-col max-w-3xl ml-auto mr-auto p-4 3xl:p-0">
+    <NavBar class="z-20" />
+    <div class="relative z-10">
+      <slot />
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import Lenis from '@studio-freight/lenis'
+if (process.client) {
+  const lenis = new Lenis({
+    duration: 0.5,
+    easing: t => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)), // https://easings.net/en#easeOutExpo
+    smooth: true,
+    smoothTouch: false,
+    touchMultiplier: 2,
+  })
+  const raf = (time) => {
+    lenis.raf(time)
+    requestAnimationFrame(raf)
+  }
+  requestAnimationFrame(raf)
+}
+</script>
