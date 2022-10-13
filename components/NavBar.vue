@@ -37,19 +37,22 @@ const linkClass = (link: Link) => {
   const t = link.text.toLowerCase()
   return {
     'lg:ml-4 hover:text-gray-500 transition-all hover:bg-gray-200 rounded px-2 py-1 hover:text-black': true,
-    'bg-gray-100': t === routeName.value || t === 'home' && routeName.value === 'index',
+    'bg-gray-100': t === routeName.value,
   }
 }
 
-const data = await getItems<NavBar>({
-  collection: 'NavBar',
-  params: {
-    fields: ['*', 'links.*'],
-  },
-})
-navbar.value = data
-links.value = data.links as Link[]
-
+try {
+  const data = await getItems<NavBar>({
+    collection: 'NavBar',
+    params: {
+      fields: ['*', 'links.*'],
+    },
+  })
+  navbar.value = data
+  links.value = data.links as Link[]
+} catch (error) {
+  // navigateTo('/error')
+}
 </script>
 
 <style>
