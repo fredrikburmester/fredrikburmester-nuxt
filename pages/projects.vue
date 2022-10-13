@@ -2,7 +2,7 @@
   <div class="flex flex-col" v-if="loaded">
     <!-- <NuxtPage :project="selectedProject" /> -->
     <transition-group name="list">
-      <nuxt-link :to="`/project/${project.slug}`" v-for="project in projects" class="[&:not(:last-child)]:border-b pb-8 [&:not(:last-child)]:border-gray-200 group flex flex-col lg:flex-row lg:place-items-center mb-8 lg:space-x-10 hover:translate-x-2  space-y-8 lg:space-y-0 transition-all">
+      <nuxt-link :to="`/project/${project.slug}`" v-for="project in projects" class="[&:not(:last-child)]:border-b pb-8 [&:not(:last-child)]:border-gray-200 group flex flex-col lg:flex-row lg:place-items-center mb-8 lg:space-x-10 lg:hover:translate-x-2  space-y-8 lg:space-y-0 transition-all">
         <div :class="imageClasses">
           <img v-if="project.image" :src="img(project.image as string)" alt="project-image" class="rounded-xl">
         </div>
