@@ -2,8 +2,8 @@
   <div class="flex flex-col" v-if="loaded">
     <transition-group name="list">
     <nuxt-link :to="`/article/${project.slug}`" v-for="project in projects" class="[&:not(:last-child)]:border-b pb-8 [&:not(:last-child)]:border-gray-200 lg:hover:translate-x-2 justify-evenly group flex flex-col lg:[&:nth-child(odd)]:flex-row lg:[&:nth-child(even)]:flex-row-reverse lg:place-items-center mb-8 lg:space-x-8 space-y-4 lg:space-y-0 transition-all">
-      <div v-if="project.image" class="w-full lg:w-80 h-48 rounded-2xl overflow-hidden  transition-all">
-        <img :src="img(project.image as string)" alt="project-image" class="rounded-2xl">
+      <div v-if="project.image" class="w-full lg:w-80 h-48 rounded-2xl overflow-hidden  transition-all shadow-xl">
+        <img :src="img(project.image, {quality: 50, width: 736})" alt="project-image" class="rounded-2xl">
       </div>
       <div v-if="!project.image" class=" w-80 h-48 cover animate-pulse bg-gray-100 rounded-2xl"></div>
       <div class="flex flex-col space-y-2 prose">

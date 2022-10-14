@@ -335,6 +335,11 @@
   resolved "https://registry.yarnpkg.com/@hutson/parse-repository-url/-/parse-repository-url-3.0.2.tgz#98c23c950a3d9b6c8f0daed06da6c3af06981340"
   integrity sha512-H9XAx3hc0BQHY6l+IFSWHDySypcXsvsuLhgYLUGywmJ5pswRVQJUHpOsobnLYp2ZUaUlKiKDrgWWhosOwAEM8Q==
 
+"@iconify/vue@^3.2.1":
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/@iconify/vue/-/vue-3.2.1.tgz#bd8a2f1213ba8775d4b7a7a8ba895e53ae2f4dfc"
+  integrity sha512-c4R6ZgFo1JrJ8aPMMgOPgfU7lBswihMGR+yWe/P4ZukC3kTkeT4+lkt9Pc/itVFMkwva/S/7u9YofmYv57fnNQ==
+
 "@ioredis/commands@^1.1.1":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@ioredis/commands/-/commands-1.2.0.tgz#6d61b3097470af1fdbbe622795b8921d42018e11"
@@ -5733,6 +5738,14 @@ nuxt-directus@^3.1.0:
   dependencies:
     "@nuxt/kit" "^3.0.0-rc.9"
     standard-version "^9.3.2"
+
+nuxt-icon@^0.1.6:
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/nuxt-icon/-/nuxt-icon-0.1.6.tgz#141c5929f23e10058a52ecc40143f7f3cd427624"
+  integrity sha512-kxw2a1VcLpqzFp0q84AhRykXOnVO5p8dEIPF0GWbFiAOK0pn1acCbTVRbgKm4sD3H+g1v3Gm8OYvl71TCDDkqg==
+  dependencies:
+    "@iconify/vue" "^3.2.1"
+    "@nuxt/kit" "^3.0.0-rc.9"
 
 nuxt@3.0.0-rc.11:
   version "3.0.0-rc.11"

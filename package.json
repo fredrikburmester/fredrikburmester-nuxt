@@ -7,15 +7,16 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
-  "engines" : {
-    "npm" : ">=8.0.0 <9.0.0",
-    "node" : ">=16.0.0 <17.0.0"
+  "engines": {
+    "npm": ">=8.0.0 <9.0.0",
+    "node": ">=16.0.0 <17.0.0"
   },
   "devDependencies": {
     "@nuxt/content": "^2.1.1",
     "@nuxt/image": "^0.7.1",
     "@nuxtjs/tailwindcss": "^5.3.5",
-    "nuxt": "3.0.0-rc.11"
+    "nuxt": "3.0.0-rc.11",
+    "nuxt-icon": "^0.1.6"
   },
   "dependencies": {
     "@nuxtjs/eslint-config-typescript": "^11.0.0",

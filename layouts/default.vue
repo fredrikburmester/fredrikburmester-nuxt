@@ -1,14 +1,17 @@
 <template>
   <div class="relative min-h-screen flex flex-col max-w-3xl ml-auto mr-auto p-4 3xl:p-0">
     <NavBar class="z-20" />
-    <div class="relative z-10">
-      <slot />
+    <ClientOnly>
+      <div class="relative z-10">
+        <slot />
+      </div>
+    </ClientOnly>
     </div>
-  </div>
 </template>
 
 <script setup lang="ts">
 import Lenis from '@studio-freight/lenis'
+
 if (process.client) {
   const lenis = new Lenis({
     duration: 0.5,
@@ -22,5 +25,7 @@ if (process.client) {
     requestAnimationFrame(raf)
   }
   requestAnimationFrame(raf)
+} else {
+  console.log('@studio-freight/lenis: not client')
 }
 </script>

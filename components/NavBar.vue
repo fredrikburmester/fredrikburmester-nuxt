@@ -1,5 +1,5 @@
 <template>
-  <div v-if="navbar" class="mb-12 navbar bg-base-100 flex flex-row justify-center sticky top-0 lg:mt-12 z-50">
+  <div v-if="navbar" class="lg:mb-12 mb-6 navbar bg-base-100 flex flex-row justify-center sticky top-0 lg:mt-12 z-50">
     <NuxtLink class="btn bg-white border-0 text-black hover:bg-gray-100 normal-case text-xl rounded-full" to="/">
       {{ navbar.title }}
     </NuxtLink>
@@ -50,6 +50,8 @@ try {
   })
   navbar.value = data
   links.value = data.links as Link[]
+
+  console.log(links.value)
 } catch (error) {
   // navigateTo('/error')
 }

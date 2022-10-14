@@ -8,16 +8,20 @@
       </div>
       <hr class="my-8">
       <div class="flex flex-row space-x-2">
-        <button v-if="project.github" class="btn btn-sm btn-primary">
-          <a :href="project.github" class="text-white no-underline">
+        <a :href="project.github" class="text-white no-underline">
+          <button v-if="project.github" class="btn btn-sm text-white btn-black justify-center flex">
+            <Icon name="uil:github"  class="mr-2  scale-150"/>
             Github
-          </a>
-        </button>
-        <button v-if="project.website" class="btn btn-sm btn-primary">
-          <a :href="project.website" class="text-white no-underline">
+            <Icon name="ic:baseline-open-in-new"  class="ml-2  scale-110"/>
+          </button>
+        </a>
+        <a :href="project.website" class=" no-underline">
+        <button v-if="project.website" class="btn text-white btn-sm btn-primary">
             Website
-          </a>
-        </button>
+            <Icon name="ic:baseline-open-in-new"  class="ml-2  scale-110"/>
+
+          </button>
+        </a>
       </div>
 
       <img :src="getThumbnail(project?.image as string || '')" class="rounded-lg mb-12 w-full" alt="">

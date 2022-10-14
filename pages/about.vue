@@ -2,7 +2,7 @@
   <div>
     <div class="avatar pb-12">
       <div class="h-48 w-48 rounded-full shadow-sm">
-        <img v-if="page?.image" :src="getThumbnail(imgId)" class="relative top-0 left-0"/>
+        <img v-if="page?.image" :src="getThumbnail(imgId, {width: 200})" class="relative top-0 left-0"/>
       </div>
     </div>
     <main>
