@@ -1,10 +1,3 @@
-export type HomePage = {
-  id: string;
-  status: string;
-  date_updated?: string;
-  title?: string;
-};
-
 export type Link = {
   id: number;
   status: string;
@@ -34,6 +27,8 @@ export type Page = {
   type?: string;
   language?: unknown;
   title?: string;
+  github?: string;
+  website?: string;
 };
 
 export type DirectusActivity = {
@@ -350,7 +345,6 @@ export type DirectusOperations = {
 };
 
 export type CustomDirectusTypes = {
-  HomePage: HomePage;
   Link: Link;
   NavBar: NavBar;
   Page: Page;

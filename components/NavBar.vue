@@ -22,22 +22,22 @@ const navbar = ref<NavBar>()
 const linksRef = ref([])
 let routeName = ref<string>('')
 
-onMounted(() => {
-  if(route.name)
-    routeName.value = route.name.toString()
-})
+// onMounted(() => {
+//   if(route.name)
+//     routeName.value = route.name.toString()
+// })
 
-watch(route, async (newRoute, oldRoute) => {
-  if(newRoute.name) {
-    routeName.value = newRoute.name.toString()
-  }
-})
+// watch(route, async (newRoute, oldRoute) => {
+//   if(newRoute.name) {
+//     routeName.value = newRoute.name.toString()
+//   }
+// })
 
 const linkClass = (link: Link) => {
-  const t = link.text.toLowerCase()
+  const navItem = link.text.toLowerCase()
   return {
     'lg:ml-4 hover:text-gray-500 transition-all hover:bg-gray-200 rounded px-2 py-1 hover:text-black': true,
-    'bg-gray-100': t === routeName.value,
+    'bg-gray-100': navItem === route.name,
   }
 }
 

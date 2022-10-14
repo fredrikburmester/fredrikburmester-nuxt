@@ -20,5 +20,11 @@ export default defineNuxtConfig({
         { name: 'Portfolio', content: 'My portfolio' }
       ],
     }
+  },
+  runtimeConfig: {
+    public: {
+      apiBase: process.env.NUXT_API_URL || 'http://localhost:8055/',
+      baseUrl: process.env.NUXT_BASE_URL || 'http://localhost:3000',
+    }
   }
 })
