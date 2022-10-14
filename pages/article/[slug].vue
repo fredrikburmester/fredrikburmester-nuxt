@@ -14,7 +14,6 @@
   </div>
 </template>
 
-
 <script setup lang="ts">
 import { Page } from '~~/types/generated'
 import { parse } from '~~/utils/useMarkdown'
@@ -23,38 +22,41 @@ const { getItems } = useDirectusItems()
 const project = ref<Page>()
 
 const route = useRoute()
-console.log(route.fullPath.split('/').pop())
 
-try {
-  const data = await getItems<Page[]>({
-    collection: 'Page',
-    params: {
-      fields: ['*', 'image'],
-      filter: {
-        slug: {
-          _eq: route.fullPath.split('/').pop()
-        }
+const data = await getItems<Page[]>({
+  collection: 'Page',
+  params: {
+    fields: ['*', 'image'],
+    filter: {
+      slug: {
+        _eq: route.fullPath.split('/').pop()
       }
-    },
-  })
-  project.value = data[0]
-} catch(e) {
-  console.log("error", e)
-}
+    }
+  },
+})
+project.value = data[0]
 
 const formatDate = (date: string) => {
   const d = new Date(date)
   return d.toLocaleDateString()
 }
 
+const config = useRuntimeConfig()
+
+const getFullUrlPath = () => {
+  if(process.client)
+    return window.location.href
+  return config.hostName + route.fullPath.toString()
+}
+
 useHead({
   meta: [
-  { hid: 'og:title', property: 'og:title', content: project.value?.title },
-  { hid: 'og:image', property: 'og:image', content: project.value?.image },
+  { hid: 'og:title', property: 'og:title', content: project.value.title },
+  { hid: 'og:image', property: 'og:image', content: `${config.apiBase}assets/${project.value.image}` },
   {
     hid: 'og:url',
     property: 'og:url',
-    content: process.env.NUXT_HOST_NAME + route.fullPath,
+    content: getFullUrlPath(),
   },
   ],
 })

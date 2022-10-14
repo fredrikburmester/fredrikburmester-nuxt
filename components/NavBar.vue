@@ -50,8 +50,6 @@ try {
   })
   navbar.value = data
   links.value = data.links as Link[]
-
-  console.log(links.value)
 } catch (error) {
   // navigateTo('/error')
 }
