@@ -1,8 +1,8 @@
 <template>
-  <div class="flex flex-col" v-if="loaded">
+  <div class="flex flex-col mb-12" v-if="projects">
     <transition-group name="list" tag="div">
-      <nuxt-link :to="`/project/${project.slug}`" v-for="project in projects"  :key="project.id" >
-        <div class="[&:not(:last-child)]:border-b transition-all pb-8 [&:not(:last-child)]:border-gray-200 group flex flex-col lg:flex-row lg:place-items-center mb-8 lg:space-x-10 lg:hover:translate-x-2 space-y-8 lg:space-y-0">
+      <nuxt-link :to="`/project/${project.slug}`" v-for="(project, index) in projects"  :key="project.id">
+        <div class="transition-all flex flex-col lg:flex-row lg:place-items-center lg:space-x-10 lg:hover:translate-x-2 space-y-8 lg:space-y-0">
           <div :class="imageClasses">
             <img @load="imagesLoaded.push(project.id)" v-if="project.image" :src="img(project.image, {quality: 10, width: 736})" alt="project-image" class="rounded-xl">
           </div>
@@ -13,6 +13,7 @@
             </div>
           </div>
         </div>
+        <hr v-if="index !== projects.length-1" class="my-8">
       </nuxt-link>
     </transition-group>
   </div>
@@ -39,35 +40,21 @@ const imageClasses = {
   'shadow-xl': true,
 }
 
-try {
-  const data = await getItems<Page[]>({
-    collection: 'Page',
-    params: {
-      fields: ['*', 'image'],
-      filter: {
-        type: {
-          _eq: 'project'
-        }
+const data = await getItems<Page[]>({
+  collection: 'Page',
+  params: {
+    fields: ['*', 'image'],
+    filter: {
+      type: {
+        _eq: 'project'
       }
-    },
-  })
-  projects.value = data
-  loaded.value = true
-} catch(e) {
-  console.log("error", e)
-}
+    }
+  },
+})
+projects.value = data
 </script>
 
 <style>
-/* .list-enter-active,
-.list-leave-active {
-  transition: all 1s ease;
-}
-.list-enter-from,
-.list-leave-to {
-  opacity: 0;
-  transform: translateY(10px);
-} */
 
 .list-enter-active,
 .list-leave-active {
@@ -75,16 +62,6 @@ try {
 }
 .list-enter-from,
 .list-leave-to {
-  opacity: 0;
-}
-
-/* fade transition */
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
-.fade-enter-from,
-.fade-leave-to {
   opacity: 0;
 }
 

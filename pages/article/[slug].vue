@@ -1,7 +1,7 @@
 <template>
   <div class="mb-24" v-if="project">
-    <main class="">
-      <h1 class="font-bold text-3xl lg:text-7xl text-black mb-4">{{project.title}}</h1>
+    <main class="prose">
+      <h1 class="mb-0">{{project.title}}</h1>
       <span class="italic text-gray-500">Published: {{ formatDate(project.date_created as string) }}</span>
       <div class="flex flex-row space-x-1 my-4">
         <span class="badge badge-ghost" v-for="l in project.language">{{l}}</span>
@@ -17,6 +17,7 @@
 <script setup lang="ts">
 import { Page } from '~~/types/generated'
 import { parse } from '~~/utils/useMarkdown'
+import { formatDate } from '~~/utils/useFormatDate'
 const { getThumbnail } = useDirectusFiles();
 const { getItems } = useDirectusItems()
 const project = ref<Page>()
@@ -35,11 +36,6 @@ const data = await getItems<Page[]>({
   },
 })
 project.value = data[0]
-
-const formatDate = (date: string) => {
-  const d = new Date(date)
-  return d.toLocaleDateString()
-}
 
 const config = useRuntimeConfig()
 

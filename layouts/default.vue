@@ -1,7 +1,7 @@
 <template>
-  <div class="relative min-h-screen flex flex-col max-w-3xl ml-auto mr-auto p-4 3xl:p-0">
+  <div class="relative min-h-screen flex flex-col p-4 3xl:p-0">
     <NavBar class="z-20" />
-      <div class="relative z-10">
+      <div class="relative z-10 max-w-3xl ml-auto mr-auto">
         <slot />
       </div>
     </div>
