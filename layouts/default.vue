@@ -1,10 +1,10 @@
 <template>
-  <div class="relative min-h-screen flex flex-col p-4 3xl:p-0">
-    <NavBar class="z-20" />
-      <div class="relative z-10 max-w-3xl ml-auto mr-auto">
-        <slot />
-      </div>
+  <NavBar class="z-20" />
+  <div class="relative min-h-screen flex flex-col p-4">
+    <div class="relative z-10 max-w-3xl ml-auto mr-auto">
+      <slot />
     </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -18,7 +18,7 @@ if (process.client) {
     smoothTouch: false,
     touchMultiplier: 2,
   })
-  const raf = (time) => {
+  const raf = (time: any) => {
     lenis.raf(time)
     requestAnimationFrame(raf)
   }
