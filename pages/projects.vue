@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col" v-if="loaded">
     <transition-group name="list" tag="div">
-      <nuxt-link :to="`/project/${project.slug}`" v-show="imagesLoaded.includes(project.id)" v-for="project in projects"  :key="project.id" >
+      <nuxt-link :to="`/project/${project.slug}`" v-for="project in projects"  :key="project.id" >
         <div class="[&:not(:last-child)]:border-b transition-all pb-8 [&:not(:last-child)]:border-gray-200 group flex flex-col lg:flex-row lg:place-items-center mb-8 lg:space-x-10 lg:hover:translate-x-2 space-y-8 lg:space-y-0">
           <div :class="imageClasses">
             <img @load="imagesLoaded.push(project.id)" v-if="project.image" :src="img(project.image, {quality: 10, width: 736})" alt="project-image" class="rounded-xl">
@@ -53,8 +53,6 @@ try {
   })
   projects.value = data
   loaded.value = true
-
-  console.log(projects.value)
 } catch(e) {
   console.log("error", e)
 }

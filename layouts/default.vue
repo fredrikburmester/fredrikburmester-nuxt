@@ -1,11 +1,9 @@
 <template>
   <div class="relative min-h-screen flex flex-col max-w-3xl ml-auto mr-auto p-4 3xl:p-0">
     <NavBar class="z-20" />
-    <ClientOnly>
       <div class="relative z-10">
         <slot />
       </div>
-    </ClientOnly>
     </div>
 </template>
 
