@@ -61,6 +61,12 @@ const formatDate = (date: string) => {
 
 const config = useRuntimeConfig()
 
+const getFullUrlPath = () => {
+  if(process.client)
+    return window.location.href
+  return config.hostName + route.fullPath.toString()
+}
+
 useHead({
   meta: [
   { hid: 'og:title', property: 'og:title', content: project.value.title },
@@ -68,7 +74,7 @@ useHead({
   {
     hid: 'og:url',
     property: 'og:url',
-    content: config.baseUrl + route.fullPath,
+    content: getFullUrlPath(),
   },
   ],
 })
