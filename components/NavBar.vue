@@ -38,7 +38,7 @@ let routeName = ref<string>('')
 const linkClass = (link: Link) => {
   const navItem = link.text.toLowerCase()
   return {
-    'lg:ml-4 hover:text-gray-500 transition-all hover:bg-gray-200 rounded px-2 py-1 hover:text-black': true,
+    'lg:ml-4 ml-1 hover:text-gray-500 transition-all hover:bg-gray-200 rounded px-2 py-1 hover:text-black': true,
     'bg-gray-100': navItem === route.name,
   }
 }

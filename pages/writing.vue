@@ -1,17 +1,26 @@
 <template>
-  <div class="flex flex-col" v-if="loaded">
+  <div class="flex flex-col justify-start" v-if="loaded">
     <transition-group name="list">
-    <nuxt-link :to="`/article/${project.slug}`" v-for="project in projects" class="[&:not(:last-child)]:border-b pb-8 [&:not(:last-child)]:border-gray-200 lg:hover:translate-x-2 justify-evenly group flex flex-col lg:[&:nth-child(odd)]:flex-row lg:[&:nth-child(even)]:flex-row-reverse lg:place-items-center mb-8 lg:space-x-8 space-y-4 lg:space-y-0 transition-all">
-      <div v-if="project.image" class="w-full lg:w-80 h-48 rounded-2xl overflow-hidden  transition-all shadow-xl">
-        <img :src="img(project.image, {quality: 50, width: 736})" alt="project-image" class="rounded-2xl">
-      </div>
-      <div v-if="!project.image" class=" w-80 h-48 cover animate-pulse bg-gray-100 rounded-2xl"></div>
-      <div class="flex flex-col space-y-2 prose">
-        <h1 class="mb-0">{{project.title}}</h1>
-        <div class="flex flex-row space-x-1">
-          <span class="badge badge-ghost" v-for="l in project.language">{{l}}</span>
+    <nuxt-link :to="`/article/${project.slug}`" v-for="project in projects" class="">
+      <div class="flex flex-row  space-x-8 justify-between hover:scale-105 duration-500 transition-all">
+
+        <div class="flex flex-col prose">
+          <h2 class="mb-0">{{project.title}}</h2>
+          <p v-if="project.description">{{project.description}}</p>
+          <span class="mt-auto my-2">{{ formatDate(project.date_created as string)}}</span>
+          <div class="flex flex-col space-y-2">
+            <div class="flex flex-row flex-wrap">
+              <span class="badge badge-ghost text-gray-500 whitespace-nowrap my-1 mr-1" v-for="l in project.language">{{l}}</span>
+            </div>
+          </div>
         </div>
+        <div style="width: 100%; max-width: 100px; height: auto; max-height: 100px;" class=" overflow-hidden m-0 p-0">
+          <img v-if="project.image" :src="img(project.image as string, {quality: 50, width: 736})" alt="project-image" class="m-0 p-0">
+        </div>
+
       </div>
+
+      <hr class="my-8">
     </nuxt-link>
         </transition-group>
   </div>
@@ -21,6 +30,7 @@
 </template>
 <script setup lang="ts">
 import { Page } from '~~/types/generated'
+import { formatDate } from '~~/utils/useFormatDate'
 import { parse } from '~~/utils/useMarkdown'
 const { getThumbnail: img } = useDirectusFiles();
 

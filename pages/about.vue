@@ -34,6 +34,7 @@ try {
     },
   })
 
+
   page.value = data[0]
   imgId.value = data[0].image as string
 
