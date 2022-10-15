@@ -34,9 +34,11 @@ jobs:
         run: yarn
 
       - name: Build
-        run: NUXT_API_URL=${{ secrets.NUXT_API_URL }} yarn build
-        # env:
-        #   NITRO_PRESET: cloudflare
+        run: yarn build
+        env:
+          NITRO_PRESET: cloudflare
+          NUXT_API_URL: 'https://cms.fredrikburmester.com/'
+          NUXT_SSR: 'false'
 
       - name: Publish
         uses: cloudflare/pages-action@1.1.0
