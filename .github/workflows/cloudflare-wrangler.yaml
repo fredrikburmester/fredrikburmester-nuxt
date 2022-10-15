@@ -36,7 +36,7 @@ jobs:
         run: yarn build
         env:
           NITRO_PRESET: cloudflare
-          NUXT_API_URL: ${{ NUXT_API_URL }}
+          NUXT_API_URL: ${{ secrets.NUXT_API_URL }}
 
       - name: Publish to Cloudflare
         uses: cloudflare/wrangler-action@2.0.0
