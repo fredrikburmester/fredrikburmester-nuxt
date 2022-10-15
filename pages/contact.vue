@@ -18,6 +18,7 @@ const page = ref<Page>()
 const imgId = ref<string>('')
 const copyInfoText = ref<string>('Click to copy email to clipboard')
 
+
 const copy = (e: Event) => {
   const el = e.target as HTMLElement
   navigator.clipboard.writeText(el.innerText)
