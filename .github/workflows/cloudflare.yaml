@@ -25,11 +25,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
 
-      - name: Set env
-        run: echo "NUXT_API_URL=$(echo $NUXT_API_URL)"
-      - name: Test
-        run: echo $NUXT_API_URL
-
       - name: Cache node_modules
         uses: actions/cache@v2
         with:
@@ -41,7 +36,7 @@ jobs:
         run: yarn
 
       - name: Build
-        run: npx nuxi generate
+        run: npx nuxi generate NUXT_API_URL=${{ secrets.NUXT_API_URL }}
         # env:
         #   NITRO_PRESET: cloudflare
 
