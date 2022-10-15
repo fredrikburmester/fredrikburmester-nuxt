@@ -25,6 +25,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
 
+      - name: Set env
+        run: echo "NUXT_API_URL=$(echo $NUXT_API_URL)"
+      - name: Test
+        run: echo $NUXT_API_URL
+
       - name: Cache node_modules
         uses: actions/cache@v2
         with:
@@ -44,8 +49,8 @@ jobs:
         uses: cloudflare/pages-action@1.1.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
-          apiBase: ${{ secrets.NUXT_API_URL }}
-          hostName: ${{ secrets.NUXT_HOST_NAME }}
+          # apiBase: ${{ secrets.NUXT_API_URL }}
+          # hostName: ${{ secrets.NUXT_HOST_NAME }}
           accountId: '7adcff2dc8617066b1fe6fb458dbaedf'
           projectName: 'fredrikburmester-nuxt' # e.g. 'my-project'
           directory: './.output/public' # e.g. 'dist'
