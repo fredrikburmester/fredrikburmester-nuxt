@@ -36,7 +36,7 @@ jobs:
         run: yarn
 
       - name: Build
-        run: yarn build
+        run: npx nuxi generate
         env:
           NITRO_PRESET: cloudflare
 
