@@ -20,5 +20,5 @@ yarn dev
 Build the application for production:
 
 ```bash
-yarn generate
+npx nuxi generate
 ```
