@@ -45,15 +45,17 @@ const getFullUrlPath = () => {
   return config.hostName + route.fullPath.toString()
 }
 
+console.log(getFullUrlPath())
+
 useHead({
   meta: [
-  { hid: 'og:title', property: 'og:title', content: project.value.title },
-  { hid: 'og:image', property: 'og:image', content: `${config.apiBase}assets/${project.value.image}` },
-  {
-    hid: 'og:url',
-    property: 'og:url',
-    content: getFullUrlPath(),
-  },
+    { hid: 'og:title', property: 'og:title', content: project.value.title },
+    { hid: 'og:image', property: 'og:image', content: `${config.apiBase}assets/${project.value.image}` },
+    {
+      hid: 'og:url',
+      property: 'og:url',
+      content: getFullUrlPath(),
+    },
   ],
 })
 </script>
