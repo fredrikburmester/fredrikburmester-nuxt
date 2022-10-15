@@ -5,6 +5,8 @@
 |Production| https://fredrikburmester-website.pages.dev/| 
 |Development|https://develop.fredrikburmester-website.pages.dev/| 
 
+https://github.com/fredrikburmester/fredrikburmester-nuxt/actions/workflows/cloudflare/badge.svg
+
 ## Run
 
 ```bash
