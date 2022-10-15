@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  'Publish to Cloudflare':
+  Publish_to_Cloudflare:
     runs-on: ubuntu-latest
 
     strategy:
