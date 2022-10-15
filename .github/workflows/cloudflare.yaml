@@ -36,7 +36,7 @@ jobs:
         run: yarn
 
       - name: Build
-        run: npx nuxi generate NUXT_API_URL=${{ secrets.NUXT_API_URL }}
+        run: NUXT_API_URL=${{ secrets.NUXT_API_URL }} npx nuxi generate
         # env:
         #   NITRO_PRESET: cloudflare
 
