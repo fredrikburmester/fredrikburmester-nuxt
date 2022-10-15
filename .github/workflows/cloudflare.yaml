@@ -1,17 +1,46 @@
+name: cloudflare
+
 on:
   push:
     branches:
       - main
-      - development
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  deploy:
+  ci:
     runs-on: ubuntu-latest
-    name: Deploy
+
+    strategy:
+      matrix:
+        os: [ ubuntu-latest ]
+        node: [ 14 ]
+
     steps:
-      - uses: actions/checkout@v3
-      - name: Publish
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16
+
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Cache node_modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ubuntu-latest-node-v16-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
+
+      - name: Install Dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: yarn
+
+      - name: Build
+        run: yarn generate
+        env:
+          NITRO_PRESET: cloudflare
+
+      - name: Publish to Cloudflare
         uses: cloudflare/wrangler-action@2.0.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
-
