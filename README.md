@@ -1,45 +1,20 @@
-# Nuxt 3 Portfolio Website
+# Portfolio website - made wuth Nuxt 3
 
 |Build|Link| 
 |---|---|
 |Production| https://fredrikburmester-website.pages.dev/| 
 |Development|https://develop.fredrikburmester-website.pages.dev/| 
 
-## Setup
-
-Make sure to install the dependencies:
+## Run
 
 ```bash
 # yarn
 yarn install
-
-# npm
-npm install
-
-# pnpm
-pnpm install --shamefully-hoist
+yarn dev
 ```
-
-## Development Server
-
-Start the development server on http://localhost:3000
-
-```bash
-npm run dev
-```
-
-## Production
 
 Build the application for production:
 
 ```bash
-npm run build
+yarn generate
 ```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Checkout the [deployment documentation](https://v3.nuxtjs.org/guide/deploy/presets) for more information.
