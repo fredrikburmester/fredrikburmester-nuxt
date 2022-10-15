@@ -1,11 +1,9 @@
 # Portfolio website - made wuth Nuxt 3
 
-![Cloudflare Pages Deployment](https://github.com/fredrikburmester/fredrikburmester-nuxt/actions/workflows/cloudflare.yaml/badge.svg)
-
-|Build|Link| 
-|---|---|
-|Production| https://fredrikburmester-website.pages.dev/| 
-|Development|https://develop.fredrikburmester-website.pages.dev/| 
+|Build|Version|Link| 
+|---|---|---|
+| ![Cloudflare Pages Deployment](https://github.com/fredrikburmester/fredrikburmester-nuxt/actions/workflows/cloudflare.yaml/badge.svg) | Production | https://fredrikburmester-website.pages.dev/ | 
+| ![Cloudflare Pages Deployment](https://github.com/fredrikburmester/fredrikburmester-nuxt/actions/workflows/cloudflare-develop.yaml/badge.svg) | Development | https://develop.fredrikburmester-website.pages.dev/ | 
 
 
 
