@@ -2,8 +2,8 @@
 
 | Status | Enviroment | Link | CF Workers |
 |---|---|---|---|
-| ![Wrangler Prod](https://github.com/fredrikburmester/fredrikburmester-nuxt/actions/workflows/cloudflare-production.yaml/badge.svg) |Production| <https://fredrikburmester-nuxt-production.fredrik-burmester.workers.dev/> | ✅ |
-| ![Wrangler Dev](https://github.com/fredrikburmester/fredrikburmester-nuxt/actions/workflows/cloudflare-develop.yaml/badge.svg) |Development| <https://fredrikburmester-nuxt-develop.fredrik-burmester.workers.dev/> | ✅ |
+| ![Wrangler Prod](https://github.com/fredrikburmester/fredrikburmester-nuxt/actions/workflows/cloudflare-production.yaml/badge.svg) |Production| <https://fb-nuxt-production.fredrik-burmester.workers.dev/> | ✅ |
+| ![Wrangler Dev](https://github.com/fredrikburmester/fredrikburmester-nuxt/actions/workflows/cloudflare-develop.yaml/badge.svg) |Development| <https://fb-nuxt-develop.fredrik-burmester.workers.dev/> | ✅ |
 
 ## Run
 
