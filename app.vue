@@ -10,13 +10,10 @@ const runtimeConfig = useRuntimeConfig()
 
 if(process.client) {
   console.log("Client:", runtimeConfig.public.apiBase, runtimeConfig.public.hostName)
-  console.log(process.env)
+  console.log(runtimeConfig.public.env)
 } else {
   console.log("Not client")
 }
-
-console.log(runtimeConfig.public.env)
-
 
 definePageMeta({
   middleware: ["pages"],
