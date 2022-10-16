@@ -1,9 +1,9 @@
 <template>
   <div>
-    <!-- <About /> -->
-    <article class="prose">
+    <About />
+    <!-- <article class="prose">
       <ContentDoc path="/about" />
-    </article>
+    </article> -->
     <Contact />
   </div>
 </template>
