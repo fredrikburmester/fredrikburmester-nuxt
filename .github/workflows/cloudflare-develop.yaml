@@ -3,11 +3,10 @@ name: cloudflare-develop
 on:
   push:
     branches:
-      - main
       - develop
 
 jobs:
-  publish:
+  ci:
     runs-on: ubuntu-latest
 
     strategy:
@@ -34,17 +33,13 @@ jobs:
         run: yarn
 
       - name: Build
-        run: NUXT_API_URL=${{ secrets.NUXT_API_URL }} npx nuxi generate
-        # env:
-        #   NITRO_PRESET: cloudflare
+        run: yarn build
+        env:
+          NITRO_PRESET: cloudflare
+          NUXT_API_URL: 'https://cms.fredrikburmester.com/'
+          NUXT_SSR: 'true'
 
-      - name: Publish
-        uses: cloudflare/pages-action@1.1.0
+      - name: Publish to Cloudflare
+        uses: cloudflare/wrangler-action@2.0.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
-          # apiBase: ${{ secrets.NUXT_API_URL }}
-          # hostName: ${{ secrets.NUXT_HOST_NAME }}
-          accountId: '7adcff2dc8617066b1fe6fb458dbaedf'
-          projectName: 'fredrikburmester-nuxt' # e.g. 'my-project'
-          directory: './.output/public' # e.g. 'dist'
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
