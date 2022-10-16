@@ -31,17 +31,11 @@
 <script setup lang="ts">
 import { Page } from '~~/types/generated'
 import { formatDate } from '~~/utils/useFormatDate'
-import { parse } from '~~/utils/useMarkdown'
 const { getThumbnail: img } = useDirectusFiles();
 
 const { getItems } = useDirectusItems()
 const projects = ref<Page[]>()
 const loaded = ref(false)
-
-const imgLoaded = (e: Event, img: string) => {
-  const el = e.target as HTMLImageElement
-  el.classList.remove('hidden')
-}
 
 try {
   const data = await getItems<Page[]>({

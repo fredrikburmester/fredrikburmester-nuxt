@@ -38,6 +38,7 @@ jobs:
           NITRO_PRESET: cloudflare
           NUXT_API_URL: 'https://cms.fredrikburmester.com/'
           NUXT_SSR: 'true'
+          NUXT_ENV: 'production'
 
       - name: Publish to Cloudflare
         uses: cloudflare/wrangler-action@2.0.0
