@@ -1,42 +1,32 @@
-# Nuxt 3 Minimal Starter
+# Portfolio website - made wuth Nuxt 3
 
-Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
+| Status | Enviroment | Link | SSR | Method |
+|---|---|---|---|---|
+| ![Cloudflare Pages Deployment](https://github.com/fredrikburmester/fredrikburmester-nuxt/actions/workflows/cloudflare.yaml/badge.svg) | Production | <https://fredrikburmester-website.pages.dev/> | ❌ | Static |
+| ![Cloudflare Pages Deployment](https://github.com/fredrikburmester/fredrikburmester-nuxt/actions/workflows/cloudflare-develop.yaml/badge.svg) | Development | <https://develop.fredrikburmester-website.pages.dev/> | ❌ | Static |
+| ![Cloudflare Pages Deployment](https://github.com/fredrikburmester/fredrikburmester-nuxt/actions/workflows/cloudflare-wrangler.yaml/badge.svg) |Production| <https://fredrikburmester-nuxt-wrangler.fredrik-burmester7317.workers.dev/> | ✅ | CF Workers |
 
-## Setup
-
-Make sure to install the dependencies:
+## Run
 
 ```bash
 # yarn
 yarn install
-
-# npm
-npm install
-
-# pnpm
-pnpm install --shamefully-hoist
+yarn dev
 ```
 
-## Development Server
-
-Start the development server on http://localhost:3000
+or
 
 ```bash
-npm run dev
+yarn build
+wrangler dev
 ```
-
-## Production
 
 Build the application for production:
 
 ```bash
-npm run build
+yarn build
 ```
 
-Locally preview production build:
+# CI
 
-```bash
-npm run preview
-```
-
-Checkout the [deployment documentation](https://v3.nuxtjs.org/guide/deploy/presets) for more information.
+The website is deployed when pushed to the main branch. The deployment is done with Cloudflare Pages and Cloudflare Workers with a Github action.
