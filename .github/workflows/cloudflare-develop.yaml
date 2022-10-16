@@ -45,5 +45,5 @@ jobs:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           postCommands: |
             echo "*** post commands ***"
-            wrangler publish --name cloudflare-develop
+            wrangler publish --name fb-nuxt-develop
             echo "******"
