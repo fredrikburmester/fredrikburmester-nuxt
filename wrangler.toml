@@ -1,4 +1,4 @@
-name = "fredrikburmester-nuxt-wrangler"
+name = "fredrikburmester-nuxt-production"
 main = "./.output/server/index.mjs"
 workers_dev = true
 compatibility_date = "2022-10-15"
