@@ -1,10 +1,9 @@
 # Portfolio website - made wuth Nuxt 3
 
-| Status | Enviroment | Link | SSR | Method |
+| Status | Enviroment | Link | CF Workers |
 |---|---|---|---|---|
-| ![Cloudflare Pages Deployment](https://github.com/fredrikburmester/fredrikburmester-nuxt/actions/workflows/cloudflare.yaml/badge.svg) | Production | <https://fredrikburmester-website.pages.dev/> | ❌ | Static |
-| ![Cloudflare Pages Deployment](https://github.com/fredrikburmester/fredrikburmester-nuxt/actions/workflows/cloudflare-develop.yaml/badge.svg) | Development | <https://develop.fredrikburmester-website.pages.dev/> | ❌ | Static |
-| ![Cloudflare Pages Deployment](https://github.com/fredrikburmester/fredrikburmester-nuxt/actions/workflows/cloudflare-wrangler.yaml/badge.svg) |Production| <https://fredrikburmester-nuxt-wrangler.fredrik-burmester7317.workers.dev/> | ✅ | CF Workers |
+| ![Wrangler Prod](https://github.com/fredrikburmester/fredrikburmester-nuxt/actions/workflows/cloudflare-wrangler.yaml/badge.svg) |Production| <https://fredrikburmester-nuxt-production.fredrik-burmester.workers.dev/> | ✅ |
+| ![Wrangler Dev](https://github.com/fredrikburmester/fredrikburmester-nuxt/actions/workflows/cloudflare-wrangler.yaml/badge.svg) |Development| <https://fredrikburmester-nuxt-develop.fredrik-burmester.workers.dev/> | ✅ |
 
 ## Run
 
