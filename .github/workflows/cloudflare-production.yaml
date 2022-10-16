@@ -1,4 +1,4 @@
-name: cloudflare-wrangler
+name: cloudflare-production
 
 on:
   push:
