@@ -43,3 +43,7 @@ jobs:
         uses: cloudflare/wrangler-action@2.0.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
+          postCommands: |
+            echo "*** post commands ***"
+            wrangler publish --name fb-nuxt-production
+            echo "******"
