@@ -9,4 +9,11 @@
 definePageMeta({
   middleware: ["pages"],
 })
+
+useHead({
+  meta: [
+    { hid: 'og:title', property: 'og:title', content: 'Fredrik Burmester' },
+    { hid: 'og:image', property: 'og:image', content: 'https://cms.fredrikburmester.com/assets/71ccab0f-0c4d-4064-b757-367304550660?width=200' },
+  ],
+})
 </script>
