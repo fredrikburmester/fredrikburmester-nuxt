@@ -29,6 +29,7 @@ export type Page = {
   title?: string;
   github?: string;
   website?: string;
+  description?: string;
 };
 
 export type DirectusActivity = {
