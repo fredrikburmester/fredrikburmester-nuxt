@@ -1,9 +1,10 @@
-name: cloudflare-production
+name: cloudflare
 
 on:
   push:
     branches:
       - main
+      - develop
 
 jobs:
   ci:
