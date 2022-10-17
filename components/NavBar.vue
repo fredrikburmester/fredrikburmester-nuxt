@@ -2,7 +2,8 @@
   <div v-if="navbar" class="lg:mb-12 mb-6 navbar bg-base-100 flex flex-row justify-center sticky top-0 lg:mt-12 z-50">
     <div class="max-w-3xl flex justify-between w-full">
       <NuxtLink class="btn bg-white border-0 text-black hover:bg-gray-100 normal-case text-xl rounded-full" to="/">
-        {{ navbar.title }}
+        <!-- {{ navbar.title }} -->
+        <AnimatedLogo />
       </NuxtLink>
       <div class="flex flex-col ml-auto">
         <ul ref="linksRef" :key="routeName" class="flex flex-row">
