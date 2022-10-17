@@ -83,6 +83,7 @@ useHead({
 
 <style scoped>
 article {
-  max-width: 90vw;
+  max-width: calc(100vw - 2rem);
+  word-wrap: break-word;
 }
 </style>
