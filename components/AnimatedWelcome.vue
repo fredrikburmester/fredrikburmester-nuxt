@@ -10,7 +10,7 @@ import { listenerCount } from 'process'
 import { text } from 'stream/consumers'
 import { transform } from 'typescript'
 
-const text1 = 'Fredrik Burmester'
+const text1 = 'fredrik burmester'
 const text2 = 'FB'
 const textSpan1 = ref(null)
 const textSpan2 = ref(null)
@@ -21,13 +21,13 @@ let j = 0
 let l = 0
 
 const letterWidth = {
-  'f': 0.52,
-  'r': 0.38,
+  'f': 0.4,
+  'r': 0.39,
   'e': 0.53,
   'd': 0.6,
-  'i': 0.2,
-  'k': 0.52,
-  'b': 0.8,
+  'i': 0.25,
+  'k': 0.53,
+  'b': 0.55,
   'u': 0.58,
   'm': 0.85,
   's': 0.51,
@@ -45,9 +45,13 @@ const letterWidth = {
 
 let blink = 3
 
-const writingSpeed = 130
+const writingSpeed = 100
 const blinkSpeed = 500
 const waitSpeed = 500
+
+const randomNumber = (min: number, max: number) => {
+  return Math.floor(Math.random() * (max - min + 1) + min)
+}
 
 const animate = () => {
   if (i < text1.length) {
@@ -66,23 +70,24 @@ const animate = () => {
       if(i == text1.length) {
         setTimeout(animate, waitSpeed);
       } else {
-        setTimeout(animate, writingSpeed);
+        setTimeout(animate, writingSpeed + randomNumber(-40, 100));
       }
     }
   } else if (j < text1.length) {
     const span = textSpan1.value as HTMLElement
     const line = d.value as HTMLElement
     // remove last element of string
-    span.innerHTML = span.innerHTML.substring(0, span.innerHTML.length - 1);
+    let newText = span.innerHTML.substring(0, span.innerHTML.length - 1);
 
     let translateWidth = 0
-    for(let k = 0; k < span.innerHTML.length; k++) {
-      translateWidth += letterWidth[span.innerHTML.charAt(k)] * 20
+    for(let k = 0; k < newText.length; k++) {
+      translateWidth += letterWidth[newText.charAt(k)] * 20
     }
     line.style = `transform: translateX(${ translateWidth}px)`
 
+    span.innerHTML = newText
     j++
-    setTimeout(animate, writingSpeed);
+    setTimeout(animate, writingSpeed + randomNumber(-40, 100));
   } else if (l < text2.length) {
     if(textSpan1.value && d.value) {
       d.value
@@ -94,7 +99,7 @@ const animate = () => {
       for(let k = 0; k < span.innerHTML.length; k++) {
         translateWidth += letterWidth[span.innerHTML.charAt(k)] * 20
       }
-      line.style = `transform: translateX(${ translateWidth}px)`
+      line.style = `transform: translateX(${  translateWidth}px)`
       l++;
       setTimeout(animate, waitSpeed);
     }

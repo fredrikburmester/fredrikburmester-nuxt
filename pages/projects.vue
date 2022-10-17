@@ -64,4 +64,8 @@ projects.value = data
   opacity: 0;
 }
 
+hr {
+  border-color: rgb(201 201 201);
+}
+
 </style>
