@@ -45,6 +45,9 @@ try {
       filter: {
         type: {
           _eq: 'article'
+        },
+        status: {
+          _eq: 'published'
         }
       }
     },
