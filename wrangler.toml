@@ -5,3 +5,7 @@ compatibility_date = "2022-10-15"
 account_id = "7adcff2dc8617066b1fe6fb458dbaedf"
 [site]
 bucket = ".output/public"
+
+[env.dev]
+name = "fb-nuxt-dev"
+route = "fb-nuxt-dev"
