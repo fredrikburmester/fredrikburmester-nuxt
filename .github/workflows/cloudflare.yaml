@@ -7,7 +7,7 @@ on:
       - develop
 
 jobs:
-  publish:
+  ci:
     runs-on: ubuntu-latest
 
     strategy:
@@ -38,13 +38,10 @@ jobs:
         env:
           NITRO_PRESET: cloudflare
           NUXT_API_URL: 'https://cms.fredrikburmester.com/'
-          NUXT_SSR: 'false'
+          NUXT_SSR: 'true'
 
-      - name: Publish
-        uses: cloudflare/pages-action@1.1.0
+      - name: Publish to Cloudflare
+        uses: cloudflare/wrangler-action@2.0.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
-          accountId: '7adcff2dc8617066b1fe6fb458dbaedf'
-          projectName: 'fredrikburmester-nuxt'
-          directory: './.output/public'
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          command: publish --name fb-nuxt-${{ github.ref_name }}

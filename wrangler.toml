@@ -1,8 +1,8 @@
-name = "fredrikburmester-nuxt"
 main = "./.output/server/index.mjs"
 workers_dev = true
-compatibility_date = "2022-10-15"
+compatibility_date = "2022-10-17"
 account_id = "7adcff2dc8617066b1fe6fb458dbaedf"
+
 [site]
 bucket = ".output/public"
 
