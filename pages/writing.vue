@@ -2,7 +2,7 @@
   <div class="flex flex-col justify-start" v-if="loaded">
     <transition-group name="list">
     <nuxt-link :to="`/article/${project.slug}`" v-for="project in projects" class="">
-      <div class="flex flex-row  space-x-8 justify-between hover:translate-x-2 duration-300 transition-all">
+      <div class="flex flex-row  space-x-8 justify-between lg:hover:translate-x-2 duration-300 transition-all">
 
         <div class="flex flex-col prose">
           <h2 class="mb-0">{{project.title}}</h2>
