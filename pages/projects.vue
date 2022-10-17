@@ -22,7 +22,6 @@
 import { Page } from '~~/types/generated'
 const { getItems } = useDirectusItems()
 const projects = ref<Page[]>()
-const loaded = ref(false)
 const imagesLoaded = ref<string[]>([])
 const { getThumbnail: img } = useDirectusFiles();
 

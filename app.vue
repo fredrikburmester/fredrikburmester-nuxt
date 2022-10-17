@@ -6,6 +6,15 @@
 </template>
 
 <script setup lang="ts">
+const runtimeConfig = useRuntimeConfig()
+
+if(process.client) {
+  console.log("Client:", runtimeConfig.public.apiBase, runtimeConfig.public.hostName)
+  console.log(runtimeConfig.public.env)
+} else {
+  console.log("Not client")
+}
+
 definePageMeta({
   middleware: ["pages"],
 })

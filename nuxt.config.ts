@@ -29,6 +29,7 @@ export default defineNuxtConfig({
     public: {
       apiBase: process.env.NUXT_API_URL || 'http://localhost:8055/',
       hostName: process.env.NUXT_HOST_NAME || 'http://localhost:3000',
+      env: process.env.NUXT_ENV || 'development',
     }
   }
 })
