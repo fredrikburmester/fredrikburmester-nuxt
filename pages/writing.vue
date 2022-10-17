@@ -49,7 +49,8 @@ try {
         status: {
           _eq: 'published'
         }
-      }
+      },
+      sort: ['-date_created']
     },
   })
   projects.value = data
