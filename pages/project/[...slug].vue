@@ -31,46 +31,12 @@
     </main>
   </div> -->
   <article class="prose">
-      <ContentDoc />
-    </article>
+    <ContentDoc />
+  </article>
 </template>
 
 
 <script setup lang="ts">
-// import { Page } from '~~/types/generated'
-// import { parse } from '~~/utils/useMarkdown'
-// import { formatDate } from '~~/utils/useFormatDate'
-
-// const { getThumbnail } = useDirectusFiles();
-// const { getItems } = useDirectusItems()
-// const project = ref<Page>()
-// const route = useRoute()
-
-// onMounted(() => {
-//   scroll(0,0)
-// })
-
-// const data = await getItems<Page[]>({
-//   collection: 'Page',
-//   params: {
-//     fields: ['*', 'image'],
-//     filter: {
-//       slug: {
-//         _eq: route.fullPath.split('/').pop()
-//       }
-//     }
-//   },
-// })
-// project.value = data[0]
-
-// const config = useRuntimeConfig()
-
-// const getFullUrlPath = () => {
-//   if(process.client)
-//     return window.location.href
-//   return config.hostName + route.fullPath.toString()
-// }
-
 // useHead({
 //   meta: [
 //   { hid: 'og:title', property: 'og:title', content: project.value.title },

@@ -1,9 +1,7 @@
 <template>
   <div class="flex flex-col justify-start" v-if="loaded">
-    <transition-group name="list">
     <nuxt-link :to="`/article/${project.slug}`" v-for="project in projects" class="">
       <div class="flex flex-row  space-x-8 justify-between lg:hover:translate-x-2 duration-300 transition-all">
-
         <div class="flex flex-col prose">
           <h2 class="mb-0">{{project.title}}</h2>
           <p v-if="project.description">{{project.description}}</p>
@@ -17,12 +15,9 @@
         <div style="width: 100%; max-width: 100px; height: auto; max-height: 100px;" class=" overflow-hidden m-0 p-0">
           <img v-if="project.image" :src="img(project.image as string, {quality: 50, width: 736})" alt="project-image" class="m-0 p-0">
         </div>
-
       </div>
-
       <hr class="my-8">
     </nuxt-link>
-        </transition-group>
   </div>
   <div v-else>
     TJOOO

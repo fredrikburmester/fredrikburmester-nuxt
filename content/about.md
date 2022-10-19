@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD026 MD041 MD033 -->
+
 :profile-picture{src="/assets/img/fredrik-burmester-profile-picture.jpeg"}
 
 # Hi, I'm Fredrik. <br>I love building websites and teaching people about tech
