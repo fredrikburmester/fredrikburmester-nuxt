@@ -1,6 +1,6 @@
 <template>
   <NavBar class="z-20" />
-  <div class="relative min-h-screen flex flex-col px-4 pt-4 lg:pb-12">
+  <div class="relative min-h-screen flex flex-col px-4 pt-24 lg:pb-12">
     <div class="relative z-10 max-w-3xl ml-auto mr-auto">
       <slot />
     </div>

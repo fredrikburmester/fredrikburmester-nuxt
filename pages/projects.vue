@@ -1,8 +1,8 @@
 <template>
-  <div class="flex flex-col mb-12" v-if="projects">
-    <transition-group name="list" tag="div">
+  <div class="flex flex-col mb-12 lg:min-w-3xl" v-if="projects">
+    <transition-group name="list">
       <nuxt-link :to="`/project/${project.slug}`" v-for="(project, index) in projects"  :key="project.id">
-        <div class="transition-all flex flex-col lg:flex-row lg:place-items-center lg:space-x-10 lg:hover:translate-x-2 lg:duration-300 space-y-8 lg:space-y-0">
+        <div class="transition-all flex flex-col flex-grow lg:space-x-8 text-start lg:flex-row lg:place-items-center lg:hover:translate-x-2 lg:duration-300 space-y-8 lg:space-y-0">
           <div :class="imageClasses">
             <img @load="imagesLoaded.push(project.id)" v-if="project.image" :src="img(project.image as string, {quality: 10, width: 736})" alt="project-image" class="rounded-xl">
           </div>
@@ -37,6 +37,7 @@ const imageClasses = {
   'overflow-hidden': true,
   'transition-all': true,
   'shadow-xl': true,
+  'flex-shrink-0': true,
 }
 
 const data = await getItems<Page[]>({
