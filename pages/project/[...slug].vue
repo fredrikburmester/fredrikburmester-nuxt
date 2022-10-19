@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-24" v-if="project">
+  <!-- <div class="mb-24" v-if="project">
     <main class="prose">
       <h1 class="mb-0">{{project.title}}</h1>
       <span class=" text-gray-400 ml-1">Published: {{ formatDate(project.date_created as string) }}</span>
@@ -29,56 +29,59 @@
       <article v-html="parse(project?.content)"></article>
 
     </main>
-  </div>
+  </div> -->
+  <article class="prose">
+      <ContentDoc />
+    </article>
 </template>
 
 
 <script setup lang="ts">
-import { Page } from '~~/types/generated'
-import { parse } from '~~/utils/useMarkdown'
-import { formatDate } from '~~/utils/useFormatDate'
+// import { Page } from '~~/types/generated'
+// import { parse } from '~~/utils/useMarkdown'
+// import { formatDate } from '~~/utils/useFormatDate'
 
-const { getThumbnail } = useDirectusFiles();
-const { getItems } = useDirectusItems()
-const project = ref<Page>()
-const route = useRoute()
+// const { getThumbnail } = useDirectusFiles();
+// const { getItems } = useDirectusItems()
+// const project = ref<Page>()
+// const route = useRoute()
 
-onMounted(() => {
-  scroll(0,0)
-})
+// onMounted(() => {
+//   scroll(0,0)
+// })
 
-const data = await getItems<Page[]>({
-  collection: 'Page',
-  params: {
-    fields: ['*', 'image'],
-    filter: {
-      slug: {
-        _eq: route.fullPath.split('/').pop()
-      }
-    }
-  },
-})
-project.value = data[0]
+// const data = await getItems<Page[]>({
+//   collection: 'Page',
+//   params: {
+//     fields: ['*', 'image'],
+//     filter: {
+//       slug: {
+//         _eq: route.fullPath.split('/').pop()
+//       }
+//     }
+//   },
+// })
+// project.value = data[0]
 
-const config = useRuntimeConfig()
+// const config = useRuntimeConfig()
 
-const getFullUrlPath = () => {
-  if(process.client)
-    return window.location.href
-  return config.hostName + route.fullPath.toString()
-}
+// const getFullUrlPath = () => {
+//   if(process.client)
+//     return window.location.href
+//   return config.hostName + route.fullPath.toString()
+// }
 
-useHead({
-  meta: [
-  { hid: 'og:title', property: 'og:title', content: project.value.title },
-  { hid: 'og:image', property: 'og:image', content: `${config.apiBase}assets/${project.value.image}` },
-  {
-    hid: 'og:url',
-    property: 'og:url',
-    content: getFullUrlPath(),
-  },
-  ],
-})
+// useHead({
+//   meta: [
+//   { hid: 'og:title', property: 'og:title', content: project.value.title },
+//   { hid: 'og:image', property: 'og:image', content: `${config.apiBase}assets/${project.value.image}` },
+//   {
+//     hid: 'og:url',
+//     property: 'og:url',
+//     content: getFullUrlPath(),
+//   },
+//   ],
+// })
 </script>
 
 <style scoped>

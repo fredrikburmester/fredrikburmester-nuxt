@@ -1,4 +1,4 @@
-![Image of Fredrik](https://cms.fredrikburmester.com/assets/71ccab0f-0c4d-4064-b757-367304550660?width=200)
+:profile-picture{src="/assets/img/fredrik-burmester-profile-picture.jpeg"}
 
 # Hi, I'm Fredrik. <br>I love building websites and teaching people about tech
 
