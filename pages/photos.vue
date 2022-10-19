@@ -1,17 +1,29 @@
+<script setup lang="ts">
+</script>
+
 <template>
-  <div class="grid place-content-center text-center">
-    <article class="prose">
-      <h1>Portfolio Website</h1>
-      <p>Check out my portfolio website where a publish all my photos.</p>
-    </article>
-    <nuxt-link to="http://fredrik.studio">
-      <button class="btn btn-primary my-8">Go to portfolio</button>
-    </nuxt-link>
-    <!-- <iframe width="100%" height="100%" src="https://fredrik.studio" frameborder="0"></iframe> -->
+  <div>
+    <ClientOnly>
+    <Teleport to="#hero-teleport">
+      <div id="photo-page-hero" class="hero min-w-screen min-h-full" style="background-image: url(https://cms.fredrikburmester.com/assets/bce28360-a8e1-48fd-93d7-5089ab9244e2);">
+        <div class="hero-overlay bg-opacity-60"></div>
+        <div class="hero-content text-center text-neutral-content">
+          <div class="max-w-md">
+            <h1 class="mb-5 text-5xl font-bold">Photo Portfolio</h1>
+            <p class="mb-5">I take a lot of pictures, check them out!</p>
+            <nuxt-link to="https://fredrik.studio">
+              <button class="btn btn-outline btn-ghost text-white hover:bg-white hover:text-black">Website</button>
+            </nuxt-link>
+          </div>
+        </div>
+      </div>
+    </Teleport>
+  </ClientOnly>
   </div>
 </template>
-<style scoped>
-div {
-  height: 70vh;
+
+<style>
+.hero {
+  min-height: 95vh;
 }
 </style>

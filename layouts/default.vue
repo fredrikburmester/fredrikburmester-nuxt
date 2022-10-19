@@ -1,8 +1,11 @@
 <template>
-  <NavBar class="z-20" />
-  <div class="relative min-h-screen flex flex-col px-4 pt-4 lg:pb-12">
-    <div class="relative z-10 max-w-3xl ml-auto mr-auto">
-      <slot />
+  <div class="min-h-screen">
+    <NavBar class="z-20" />
+    <div class="relative flex flex-col z-10">
+      <div id="hero-teleport" />
+      <div class="max-w-3xl ml-auto mr-auto px-4 lg:px-0 lg:pb-12 pt-6">
+        <slot />
+      </div>
     </div>
   </div>
 </template>

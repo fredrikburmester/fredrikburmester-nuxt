@@ -3,7 +3,7 @@
 var ssr = (process.env.NUXT_SSR === 'true');
 
 export default defineNuxtConfig({
-  modules: ["nuxt-directus",'@nuxtjs/tailwindcss','@nuxt/content', '@pinia/nuxt','nuxt-icon'],
+  modules: ["nuxt-directus",'@nuxtjs/tailwindcss','@pinia/nuxt','nuxt-icon'],
   ssr: ssr,
   directus: {
     url: process.env.NUXT_API_URL

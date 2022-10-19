@@ -1,9 +1,6 @@
 <template>
   <div>
     <About />
-    <!-- <article class="prose">
-      <ContentDoc path="/about" />
-    </article> -->
     <Contact />
   </div>
 </template>
@@ -12,7 +9,7 @@
 import About from './about.vue'
 import Contact from './contact.vue'
 
-definePageMeta({
-  middleware: ["pages"]
-})
+// definePageMeta({
+//   middleware: ["pages"]
+// })
 </script>
