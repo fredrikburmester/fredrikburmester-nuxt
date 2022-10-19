@@ -1,5 +1,5 @@
 <template>
-  <div id="c" class="flex flex-col text-left leading-0 justify-center -translate-y-3 hover:text-gray-500 w-36 translate-x-6 transition-all ">
+  <div id="c" class="flex flex-col text-left leading-0 justify-center -translate-y-3 hover:text-gray-500 w-36 translate-x-2 transition-all ">
     <span ref="textSpan1" class="transition-all"></span>
     <span ref="textSpan2" class=" translate-y-5 transition-all"></span>
     <div id="d" ref="d"></div>
