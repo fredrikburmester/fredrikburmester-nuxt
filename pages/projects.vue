@@ -1,21 +1,19 @@
 <template>
   <div class="flex flex-col mb-12" v-if="projects">
-    <transition-group name="list" tag="div">
-      <nuxt-link :to="`/project/${project.slug}`" v-for="(project, index) in projects"  :key="project.id">
-        <div class="transition-all flex flex-col lg:flex-row lg:place-items-center lg:space-x-10 lg:hover:translate-x-2 lg:duration-300 space-y-8 lg:space-y-0">
-          <div :class="imageClasses">
-            <img @load="imagesLoaded.push(project.id)" v-if="project.image" :src="img(project.image as string, {quality: 10, width: 736})" alt="project-image" class="rounded-xl">
-          </div>
-          <div class="flex flex-col space-y-2 prose mt-4">
-            <span class="font-bold text-3xl text-black">{{project.title}}</span>
-            <div class="flex flex-row space-x-1">
-              <span class="badge badge-ghost" v-for="l in project.language">{{l}}</span>
-            </div>
+    <nuxt-link :to="`/project/${project.slug}`" v-for="(project, index) in projects"  :key="project.id">
+      <div class="transition-all flex flex-col lg:flex-row lg:place-items-center lg:space-x-10 lg:hover:translate-x-2 lg:duration-300 space-y-8 lg:space-y-0">
+        <div :class="imageClasses">
+          <img @load="imagesLoaded.push(project.id)" v-if="project.image" :src="img(project.image as string, {quality: 10, width: 736})" alt="project-image" class="rounded-xl">
+        </div>
+        <div class="flex flex-col space-y-2 prose mt-4">
+          <span class="font-bold text-3xl text-black">{{project.title}}</span>
+          <div class="flex flex-row space-x-1">
+            <span class="badge badge-ghost" v-for="l in project.language">{{l}}</span>
           </div>
         </div>
-        <hr v-if="index !== projects.length-1" class="my-8">
-      </nuxt-link>
-    </transition-group>
+      </div>
+      <hr v-if="index !== projects.length-1" class="my-8">
+    </nuxt-link>
   </div>
 </template>
 <script setup lang="ts">
