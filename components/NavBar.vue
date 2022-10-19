@@ -3,8 +3,8 @@
     <div class="max-w-3xl flex justify-between w-full">
       <NuxtLink class="btn bg-white border-0 text-black hover:bg-white  normal-case w-36 text-xl rounded-full" to="/">
         <!-- {{ navbar.title }} -->
-        <!-- <AnimatedLogo /> -->
-        <AnimatedWelcome />
+        <AnimatedLogo />
+        <!-- <AnimatedWelcome /> -->
       </NuxtLink>
       <div class="flex flex-col ml-auto">
         <ul ref="linksRef" :key="routeName" class="flex flex-row">
