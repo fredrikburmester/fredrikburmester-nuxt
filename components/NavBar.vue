@@ -1,5 +1,5 @@
 <template>
-  <nav v-if="navbar" class="mb-6 navbar bg-base-100 flex flex-row justify-center sticky top-0 lg:mt-12 z-50">
+  <nav v-if="navbar" class="navbar bg-base-100 flex flex-row justify-center sticky top-0 lg:mt-12 z-50">
     <div class="max-w-3xl flex justify-between w-full">
       <NuxtLink class="btn bg-white border-0 text-black hover:bg-white  normal-case w-36 text-xl rounded-full" to="/">
         <!-- {{ navbar.title }} -->

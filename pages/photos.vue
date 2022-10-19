@@ -24,6 +24,6 @@
 
 <style>
 .hero {
-  min-height: 90vh;
+  min-height: 95vh;
 }
 </style>

@@ -1,9 +1,9 @@
 <template>
   <div class="min-h-screen">
     <NavBar class="z-20" />
-    <div class="relative flex flex-col z-10 h-max">
+    <div class="relative flex flex-col z-10">
       <div id="hero-teleport" />
-      <div class="max-w-3xl ml-auto mr-auto px-4 lg:px-0 pb-12">
+      <div class="max-w-3xl ml-auto mr-auto px-4 lg:px-0 lg:pb-12 pt-6">
         <slot />
       </div>
     </div>
