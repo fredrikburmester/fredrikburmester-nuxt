@@ -20,6 +20,10 @@ const d = ref(null)
 let i = 0
 let j = 0
 
+const randomNumber = (min: number, max: number) => {
+  return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
 const letterWidth = {
   'f': 0.52,
   'r': 0.38,
@@ -54,7 +58,7 @@ const animate = () => {
         line.style = `transform: translateY(20px)`
         setTimeout(animate, 500);
       } else {
-        setTimeout(animate, 130);
+        setTimeout(animate, 100 + randomNumber(-50, 50));
       }
     }
   } else if (j < text2.length) {
@@ -70,7 +74,7 @@ const animate = () => {
       line.style = `transform: translateY(20px) translateX(${13 + translateWidth}px)`
       span.innerHTML += text2.charAt(j);
       j++;
-      setTimeout(animate, 130);
+      setTimeout(animate, 100 + randomNumber(-50, 50));
     }
   } else if (blink > 0) {
     if(!d.value) return
@@ -113,6 +117,6 @@ span {
   height: 20px;
   width: 2px;
   background-color: rgb(73, 73, 73);
-  transition: all 0.1s ease;
+  transition: all 0.09s ease;
 }
 </style>
