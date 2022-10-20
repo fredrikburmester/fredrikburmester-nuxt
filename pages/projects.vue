@@ -1,18 +1,18 @@
 <template>
-  <div class="flex flex-col mb-12" v-if="projects">
+  <div v-if="projects" class="flex flex-col lg:mt-12">
     <nuxt-link :to="`/project/${project.slug}`" v-for="(project, index) in projects"  :key="project.id">
-      <div class="transition-all flex flex-col lg:flex-row lg:place-items-center lg:space-x-10 lg:hover:translate-x-2 lg:duration-300 space-y-8 lg:space-y-0">
-        <div :class="imageClasses">
-          <img @load="imagesLoaded.push(project.id)" v-if="project.image" :src="img(project.image as string, {quality: 10, width: 736})" alt="project-image" class="rounded-xl">
-        </div>
-        <div class="flex flex-col space-y-2 prose mt-4">
-          <span class="font-bold text-3xl text-black">{{project.title}}</span>
-          <div class="flex flex-row space-x-1">
-            <span class="badge badge-ghost" v-for="l in project.language">{{l}}</span>
+        <figure class="lg:mb-4 shadow-lg">
+          <img :src="img(project.image as string, {quality: 10, width: 736})" class="relative w-screen lg:w-full lg:shadow-xl"/>
+        </figure>
+        <div class="stats rounded-none shadow-none">
+          <div class="stat lg:px-0">
+            <div class="stat-value whitespace-pre-wrap max-w-12">{{project.title}}</div>
+            <div class="stat-desc" v-if="project.description">{{project.description}}</div>
           </div>
         </div>
-      </div>
-      <hr v-if="index !== projects.length-1" class="my-8">
+        <div class="justify-start flex-wrap lg:px-0 px-5 mb-12">
+          <div class="badge badge-success mr-1 mb-1" v-for="l in project.language">{{l}}</div>
+        </div>
     </nuxt-link>
   </div>
 </template>

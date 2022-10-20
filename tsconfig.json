@@ -10,7 +10,7 @@
     "strict": true,
     "sourceMap": true,
     "target": "esnext",
-    "types": ["node","@nuxt/types"],
+    "types": ["node","@nuxt/types","@pinia/nuxt"],
     "outDir": "dist"
 
   },

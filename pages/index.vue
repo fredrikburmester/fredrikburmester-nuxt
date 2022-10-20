@@ -1,8 +1,5 @@
 <template>
-  <div>
-    <About />
-    <Contact />
-  </div>
+  <About />
 </template>
 
 <script setup lang=ts>
