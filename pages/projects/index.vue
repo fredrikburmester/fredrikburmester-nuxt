@@ -1,8 +1,8 @@
 <template>
   <div v-if="projects" class="flex flex-col lg:mt-12">
-    <nuxt-link :to="`/project/${project.slug}`" v-for="(project, index) in projects"  :key="project.id">
+    <nuxt-link :to="`/projects/${project.slug}`" v-for="(project, index) in projects"  :key="project.id" class=" cursor-pointer">
         <figure class="lg:mb-4 shadow-lg">
-          <img :src="img(project.image as string, {quality: 10, width: 736})" class="relative w-screen lg:w-full lg:shadow-xl"/>
+          <img :src="img(project.image as string, {quality: 50, width: 736})" class="relative w-screen lg:w-full lg:shadow-xl"/>
         </figure>
         <div class="stats rounded-none shadow-none">
           <div class="stat lg:px-0">

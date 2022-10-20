@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col justify-start mt-2 lg:mt-12 w-screen px-4 lg:px-0 lg:max-w-3xl mb-12" v-if="loaded">
-    <nuxt-link :to="`/article/${project.slug}`" v-for="project, index in projects">
+    <nuxt-link :to="`/blog/${project.slug}`" v-for="project, index in projects">
       <hr class="my-4" v-if="index != 0 && index != projects?.length">
       <div class="flex flex-row  space-x-8 justify-between lg:hover:translate-x-2 duration-300 transition-all py-4">
         <div class="flex flex-col prose">
