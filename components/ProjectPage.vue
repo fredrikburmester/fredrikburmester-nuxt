@@ -17,7 +17,6 @@
 
 <script setup lang="ts">
 import { Page } from '~~/types/generated'
-import { parse } from '~~/utils/useMarkdown'
 
 definePageMeta({
   middleware: ["pages"]

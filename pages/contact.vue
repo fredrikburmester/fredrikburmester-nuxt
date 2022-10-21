@@ -1,17 +1,15 @@
 <template>
-  <footer class="py-12">
-    <article class=" prose">
-      <div v-html="parse(page?.content)"></div>
-      <span>Email me at: </span>
-      <div class="tooltip text-primary cursor-pointer" :data-tip="copyInfoText" @click="copy($event)">
-        fredrik.burmester@gmail.com
-      </div>.
-    </article>
+  <footer class="py-12 bg-black text-white prose px-4">
+    <h1 class="text-white">Contact me</h1>
+    <p>Have a question about my work? Want to work together? Don't hesitate to reach out!</p>
+    <span>Email me at: </span>
+    <div class="tooltip text-primary cursor-pointer" :data-tip="copyInfoText" @click="copy($event)">
+      fredrik.burmester@gmail.com
+    </div>.
   </footer>
 </template>
 <script setup lang="ts">
 import { Page } from '~~/types/generated'
-import {parse} from '~~/utils/useMarkdown'
 
 const { getItems } = useDirectusItems()
 const page = ref<Page>()

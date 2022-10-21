@@ -1,5 +1,5 @@
 <template>
-  <NuxtLayout>
+  <NuxtLayout >
     <NuxtLoadingIndicator />
     <NuxtPage />
   </NuxtLayout>
@@ -12,7 +12,7 @@ if(process.client) {
   console.log("Client:", runtimeConfig.public.apiBase, runtimeConfig.public.hostName)
   console.log(runtimeConfig.public.env)
 } else {
-  console.log("Not client")
+  console.log("This is the server!")
 }
 
 definePageMeta({
