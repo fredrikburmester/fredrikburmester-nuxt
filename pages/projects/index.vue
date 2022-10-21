@@ -1,32 +1,37 @@
 <template>
-  <div v-if="projects" class="flex flex-col lg:mt-12 w-screen lg:max-w-xl">
+  <!-- <div v-if="projects" class="flex flex-row lg:mt-12 w-screen space-x-4">
     <nuxt-link :to="`/projects/${project.slug}`" v-for="(project, index) in projects"  :key="project.id" class="">
-      <div class="cursor-pointer mb-12 card rounded-none lg:rounded-xl lg:shadow-md lg:hover:shadow-lg  transition-all">
-
-      <figure class="">
-        <img :src="img(project.image as string, {quality: 50, width: 500})" class="relative w-screen lg:w-full"/>
-      </figure>
-      <div class="card-body p-4 lg:p-8">
-        <h1 class="card-title text-3xl underline">{{ project.title }}</h1>
-        <div class="stat-desc whitespace-pre-wrap text-sm" v-if="project.description">{{shortText(project.description, 200)}}</div>
-        <div class="card-actions flex flex-col">
-          <div class="justify-start flex-wrap lg:px-0">
+      <div class="cursor-pointer mb-12 card rounded-none lg:rounded-xl lg:shadow-md lg:hover:shadow-lg transition-all w-96 h-96">
+        <figure class="">
+          <img :src="img(project.image as string, {quality: 50, width: 500})" class="relative w-screen lg:w-full"/>
+        </figure>
+        <div class="card-body p-4 lg:p-8">
+          <h1 class="card-title text-3xl underline">{{ project.title }}</h1>
+          <div class="stat-desc whitespace-pre-wrap text-sm" v-if="project.description">{{shortText(project.description, 200)}}</div>
+          <div class="card-actions flex flex-col">
+            <div class="justify-start flex-wrap lg:px-0">
+              <div class="badge badge-ghost text-gray-500 whitespace-nowrap my-1 mr-1" v-for="l in project.language">{{l}}</div>
+            </div>
+            <button class="btn-ghost btn-outline rounded-lg mt-2 lg:visible hidden">See more</button>
+          </div>
+        </div>
+      </div>
+    </nuxt-link>
+  </div> -->
+  <div v-if="projects" class="flex flex-col max-w-2xl sm:space-y-12 sm:pt-12 sm:pb-24 snap-y">
+    <nuxt-link :to="`/projects/${project.slug}`" v-for="(project, index) in projects"  :key="project.id" class="snap-center">
+     <div class="relative image-full bg-base-100">
+        <figure class="mobile:w-screen mobile:image-full mobile:text-center mobile:grid mobile:place-content-center">
+          <img :src="img(project.image as string, {quality: 100})" class="mobile:max-w-none mobile:h-[calc(100vh-64px)]"/>
+        </figure>
+        <div class="mobile:h-[calc(30vh)] bg-transparent text-white absolute bottom-0 left-0 p-4 max-w-screen lg:p-12 glass shadow-md hover:shadow-lg transition-all hover:bg-accent hover:text-white duration-500">
+          <h1 class="text-3xl sm:text-5xl font-bold z-100 mb-2">{{ project.title}}</h1>
+          <p>{{project.description}}</p>
+          <div class="justify-start flex-wrap lg:px-0 mt-4">
             <div class="badge badge-ghost text-gray-500 whitespace-nowrap my-1 mr-1" v-for="l in project.language">{{l}}</div>
           </div>
-          <button class="btn-ghost btn-outline rounded-lg mt-2 lg:visible hidden">See more</button>
         </div>
-      </div>
-    </div>
-
-      <!-- <div class="stats rounded-none shadow-none card-body">
-        <div class="stat lg:px-0 px-4 py-2">
-          <div class="stat-value whitespace-pre-wrap max-w-12">{{project.title}}</div>
-          <div class="stat-desc whitespace-pre-wrap text-sm" v-if="project.description">{{shortText(project.description, 200)}}</div>
-        </div>
-      </div>
-      <div class="justify-start flex-wrap lg:px-0 px-4">
-        <div class="badge badge-ghost text-gray-500 whitespace-nowrap my-1 mr-1" v-for="l in project.language">{{l}}</div>
-      </div> -->
+     </div>
     </nuxt-link>
   </div>
 </template>
