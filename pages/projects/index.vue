@@ -18,15 +18,15 @@
       </div>
     </nuxt-link>
   </div> -->
-  <div v-if="projects" class="flex flex-col max-w-2xl sm:space-y-12 sm:pt-12 sm:pb-24 snap-y">
+  <div v-if="projects" class="flex flex-col max-w-2xl space-y-6 lg:space-y-24 sm:pt-12 sm:pb-24 px-4 pb-6 pt-2">
     <nuxt-link :to="`/projects/${project.slug}`" v-for="(project, index) in projects"  :key="project.id" class="snap-center">
      <div class="relative image-full bg-base-100">
-        <figure class="mobile:w-screen mobile:image-full mobile:text-center mobile:grid mobile:place-content-center">
-          <img :src="img(project.image as string, {quality: 100})" class="mobile:max-w-none mobile:h-[calc(100vh-64px)]"/>
+        <figure class=" mobile:image-full mobile:text-center mobile:grid">
+          <img :src="img(project.image as string, {quality: 100})" class=""/>
         </figure>
-        <div class="mobile:h-[calc(30vh)] bg-transparent text-white absolute bottom-0 left-0 p-4 max-w-screen lg:p-12 glass shadow-md hover:shadow-lg transition-all hover:bg-accent hover:text-white duration-500">
-          <h1 class="text-3xl sm:text-5xl font-bold z-100 mb-2">{{ project.title}}</h1>
-          <p>{{project.description}}</p>
+        <div class="bg-transparent text-white absolute bottom-0 left-0 p-4 lg:p-12 glass shadow-md hover:shadow-lg transition-all hover:bg-accent hover:text-white duration-500">
+          <h1 class="text-2xl sm:text-5xl font-bold z-100 mb-2">{{ project.title}}</h1>
+          <p class="text-sm">{{shortText(project.description || '', 120)}}</p>
           <div class="justify-start flex-wrap lg:px-0 mt-4">
             <div class="badge badge-ghost text-gray-500 whitespace-nowrap my-1 mr-1" v-for="l in project.language">{{l}}</div>
           </div>
