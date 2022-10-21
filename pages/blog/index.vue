@@ -13,8 +13,8 @@
             </div>
           </div>
         </div>
-        <div style="width: 100%; max-width: 100px; height: auto; max-height: 100px;" class=" overflow-hidden m-0 p-0">
-          <img v-if="project.image" :src="img(project.image as string, {quality: 50, width: 736})" alt="project-image" class="m-0 p-0">
+        <div v-if="project.image" style="width: 100%; max-width: 100px; height: auto; max-height: 100px;" class=" overflow-hidden m-0 p-0">
+          <img :src="img(project.image as string, {quality: 50, width: 736})" alt="project-image" class="m-0 p-0">
         </div>
       </div>
     </nuxt-link>

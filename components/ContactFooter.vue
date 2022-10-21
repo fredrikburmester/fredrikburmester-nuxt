@@ -1,7 +1,7 @@
 <template>
   <footer id="footer" class="lg:py-12 py-6 bg-black text-white prose min-w-full flex lg:flex-row flex-col px-4 fixed bottom-0 left-0 -z-10 justify-between">
     <div class="text-start">
-      <h1 class="text-white mb-1">Contact me</h1>
+      <h2 class="text-white mb-1 mt-0">Contact me</h2>
       <p class="m-0">Have a question about my work? Want to work together? Don't hesitate to reach out!</p>
       <span>Email me at:</span>
       <div class="tooltip text-primary cursor-pointer" :data-tip="copyInfoText" @click="copy($event)">
@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="lg:text-end flex flex-col mt-8 lg:mt-0">
-      <h1 class="text-white mb-1">Social Links</h1>
+      <h2 class="text-white mb-1 mt-0">Social Links</h2>
       <nuxt-link to="https://instagram.com/fredrikburmester" class="m-0 text-white cursor-pointer">
           Instagram
       </nuxt-link>

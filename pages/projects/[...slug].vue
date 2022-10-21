@@ -22,8 +22,8 @@
         </a>
       </div>
     </header>
-    <div class="rounded-lg mb-12 w-screen grid place-items-center my-8">
-      <img :src="getThumbnail(project.image as string)" alt="" />
+    <div class="rounded-lg mb-12 w-screen grid place-items-center my-8 max-h-80">
+      <img :src="getThumbnail(project.image as string)" alt="" class="max-h-80" />
     </div>
     <main v-html="parse(project.content)"></main>
   </div>
