@@ -1,0 +1,53 @@
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
+main {
+  @apply px-4;
+  @apply lg:px-0;
+  @apply pb-12;
+  @apply lg:pb-24;
+  @apply ml-auto;
+  @apply mr-auto;
+  @apply lg:max-w-3xl;
+  @apply w-screen;
+  @apply prose;
+
+  word-wrap: break-word;
+}
+
+header {
+  @apply px-4;
+  @apply lg:px-0;
+  @apply lg:pt-8;
+  @apply ml-auto;
+  @apply mr-auto;
+  @apply lg:max-w-3xl;
+  @apply w-screen;
+  @apply prose;
+
+  word-wrap: break-word;
+}
+
+.container {
+  @apply px-4;
+  @apply lg:px-0;
+  @apply py-2;
+  @apply lg:py-12;
+  @apply ml-auto;
+  @apply mr-auto;
+  @apply lg:max-w-3xl;
+  @apply w-screen;
+  @apply prose;
+  @apply pb-6;
+  @apply lg:pb-12;
+
+}
+
+button {
+  @apply btn;
+}
+
+

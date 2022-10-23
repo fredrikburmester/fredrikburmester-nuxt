@@ -1,5 +1,5 @@
 <template>
-  <div id="c" class="flex flex-col text-left leading-0 justify-center -translate-y-3 hover:text-gray-500 w-36 translate-x-6 transition-all ">
+  <div id="c" class="flex flex-col text-left leading-0 justify-center -translate-y-3 hover:text-gray-500 w-36 translate-x-2 transition-all ">
     <span ref="textSpan1" class="transition-all"></span>
     <span ref="textSpan2" class=" translate-y-5 transition-all"></span>
     <div id="d" ref="d"></div>
@@ -19,6 +19,10 @@ const d = ref(null)
 
 let i = 0
 let j = 0
+
+const randomNumber = (min: number, max: number) => {
+  return Math.floor(Math.random() * (max - min + 1) + min)
+}
 
 const letterWidth = {
   'f': 0.52,
@@ -54,7 +58,7 @@ const animate = () => {
         line.style = `transform: translateY(20px)`
         setTimeout(animate, 500);
       } else {
-        setTimeout(animate, 130);
+        setTimeout(animate, 100 + randomNumber(-50, 50));
       }
     }
   } else if (j < text2.length) {
@@ -70,7 +74,7 @@ const animate = () => {
       line.style = `transform: translateY(20px) translateX(${13 + translateWidth}px)`
       span.innerHTML += text2.charAt(j);
       j++;
-      setTimeout(animate, 130);
+      setTimeout(animate, 100 + randomNumber(-50, 50));
     }
   } else if (blink > 0) {
     if(!d.value) return
@@ -113,6 +117,6 @@ span {
   height: 20px;
   width: 2px;
   background-color: rgb(73, 73, 73);
-  transition: all 0.1s ease;
+  transition: all 0.09s ease;
 }
 </style>

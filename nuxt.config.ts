@@ -3,11 +3,27 @@
 var ssr = (process.env.NUXT_SSR === 'true');
 
 export default defineNuxtConfig({
-  modules: ["nuxt-directus",'@nuxtjs/tailwindcss','@nuxt/content', '@pinia/nuxt','nuxt-icon'],
+  imports: {
+    dirs: ['stores'],
+  },
+  plugins: ['~/plugins/lenis.ts'],
+  modules: ["nuxt-directus",'@nuxtjs/tailwindcss','@pinia/nuxt','nuxt-icon',
+  [
+    '@pinia/nuxt',
+    {
+      autoImports: [
+        'defineStore',
+        ['defineStore', 'definePiniaStore'],
+      ],
+    },
+  ],],
   ssr: ssr,
   directus: {
     url: process.env.NUXT_API_URL
   },
+  css: [
+    '@/assets/css/main.css',
+  ],
   tailwindcss: {
     cssPath: '~/assets/css/tailwind.css',
     configPath: 'tailwind.config.js',
@@ -32,4 +48,5 @@ export default defineNuxtConfig({
       env: process.env.NUXT_ENV || 'development',
     }
   }
+
 })

@@ -12,7 +12,7 @@
 import About from './about.vue'
 import Contact from './contact.vue'
 
-definePageMeta({
-  middleware: ["pages"]
-})
+// definePageMeta({
+//   middleware: ["pages"]
+// })
 </script>

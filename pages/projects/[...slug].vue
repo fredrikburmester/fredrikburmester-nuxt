@@ -49,10 +49,3 @@
 //   ],
 // })
 </script>
-
-<style scoped>
-article {
-  max-width: calc(100vw - 2rem);
-  word-wrap: break-word;
-}
-</style>
