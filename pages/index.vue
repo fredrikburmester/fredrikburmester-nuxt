@@ -1,5 +1,11 @@
 <template>
-  <About />
+  <div>
+    <!-- <About /> -->
+    <article class="prose">
+      <ContentDoc path="/about" />
+    </article>
+    <Contact />
+  </div>
 </template>
 
 <script setup lang=ts>
