@@ -1,33 +1,25 @@
 <template>
-  <div v-if="projects" class="flex flex-col lg:mt-12 w-screen lg:max-w-xl">
-    <nuxt-link :to="`/projects/${project.slug}`" v-for="(project, index) in projects"  :key="project.id" class="">
-      <div class="cursor-pointer mb-12 card rounded-none lg:rounded-xl lg:shadow-md lg:hover:shadow-lg  transition-all">
-
-      <figure class="">
-        <img :src="img(project.image as string, {quality: 50, width: 500})" class="relative w-screen lg:w-full"/>
-      </figure>
-      <div class="card-body p-4 lg:p-8">
-        <h1 class="card-title text-3xl underline">{{ project.title }}</h1>
-        <div class="stat-desc whitespace-pre-wrap text-sm" v-if="project.description">{{shortText(project.description, 200)}}</div>
-        <div class="card-actions flex flex-col">
-          <div class="justify-start flex-wrap lg:px-0">
-            <div class="badge badge-ghost text-gray-500 whitespace-nowrap my-1 mr-1" v-for="l in project.language">{{l}}</div>
-          </div>
-          <button class="btn-ghost btn-outline rounded-lg mt-2 lg:visible hidden">See more</button>
-        </div>
-      </div>
-    </div>
-
-      <!-- <div class="stats rounded-none shadow-none card-body">
-        <div class="stat lg:px-0 px-4 py-2">
-          <div class="stat-value whitespace-pre-wrap max-w-12">{{project.title}}</div>
-          <div class="stat-desc whitespace-pre-wrap text-sm" v-if="project.description">{{shortText(project.description, 200)}}</div>
-        </div>
-      </div>
-      <div class="justify-start flex-wrap lg:px-0 px-4">
+  <div class="grid md:grid-cols-2 max-w-3xl gap-12 md:gap-8 mt-12 mb-12 px-2">
+    <div v-if="projects" class="grid grid-cols-1 gap-12 md:gap-8">
+      <nuxt-link :to="`/projects/${project.slug}`" v-for="(project, index) in firstHalf"  :key="project.id" class="">
+        <figure class="my-2">
+          <img :src="img(project.image as string, {quality: 100})" class=""/>
+        </figure>
+        <h1 class="text-2xl font-bold">{{ project.title}}</h1>
+        <p class="text-sm py-2 opacity-90">{{shortText(project.description || '', 120)}}</p>
         <div class="badge badge-ghost text-gray-500 whitespace-nowrap my-1 mr-1" v-for="l in project.language">{{l}}</div>
-      </div> -->
-    </nuxt-link>
+      </nuxt-link>
+    </div>
+    <div v-if="projects" class="grid grid-cols-1 gap-12 md:gap-8">
+      <nuxt-link :to="`/projects/${project.slug}`" v-for="(project, index) in secondHalf"  :key="project.id" class="">
+        <figure class="my-2">
+          <img :src="img(project.image as string, {quality: 100})" class=""/>
+        </figure>
+        <h1 class="text-2xl font-bold">{{ project.title}}</h1>
+        <p class="text-sm py-2 opacity-90">{{shortText(project.description || '', 120)}}</p>
+        <div class="badge badge-ghost text-gray-500 whitespace-nowrap my-1 mr-1" v-for="l in project.language">{{l}}</div>
+      </nuxt-link>
+    </div>
   </div>
 </template>
 <script setup lang="ts">
@@ -40,6 +32,7 @@ const { getThumbnail: img } = useDirectusFiles();
 definePageMeta({
   middleware: ["pages"]
 })
+
 
 const shortText = (t: string, l: number) => {
   if (t.length > l) {
@@ -65,11 +58,18 @@ const data = await getItems<Page[]>({
     filter: {
       type: {
         _eq: 'project'
+      },
+      status: {
+        _eq: 'published'
       }
-    }
+    },
   },
 })
 projects.value = data
+
+const firstHalf = ref(projects.value.slice(0, Math.ceil(projects.value.length / 2)))
+const secondHalf = ref(projects.value.slice(Math.ceil(projects.value.length / 2), projects.value.length))
+
 </script>
 
 <style>
