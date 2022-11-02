@@ -1,6 +1,6 @@
 <template>
   <div class="grid md:grid-cols-2 max-w-3xl gap-12 md:gap-8 mt-12 mb-12 px-2">
-    <div v-if="projects" class="grid grid-cols-1 gap-12 md:gap-8">
+    <div v-if="projects" class="grid grid-cols-1 gap-12 md:gap-8 place-content-start">
       <nuxt-link :to="`/projects/${project.slug}`" v-for="(project, index) in firstHalf"  :key="project.id" class="">
         <figure class="my-2">
           <img :src="img(project.image as string, {quality: 100})" class=""/>
@@ -10,7 +10,7 @@
         <div class="badge badge-ghost text-gray-500 whitespace-nowrap my-1 mr-1" v-for="l in project.language">{{l}}</div>
       </nuxt-link>
     </div>
-    <div v-if="projects" class="grid grid-cols-1 gap-12 md:gap-8">
+    <div v-if="projects" class="grid grid-cols-1 gap-12 md:gap-8 place-content-start">
       <nuxt-link :to="`/projects/${project.slug}`" v-for="(project, index) in secondHalf"  :key="project.id" class="">
         <figure class="my-2">
           <img :src="img(project.image as string, {quality: 100})" class=""/>
